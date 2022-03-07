@@ -1,0 +1,43 @@
+services:
+        ubuntu1:
+                hostname: ubuntu1
+                container_name: ubuntu1
+                image: rajabov/ubuntu:sshv2
+                networks:
+                        rajabov:
+                                ipv4_address: 172.20.0.2
+
+        ubuntu2:
+                hostname: ubuntu2
+                container_name: ubuntu2
+                image: rajabov/ubuntu:sshv2
+                networks:
+                        rajabov:
+                                ipv4_address: 172.20.0.3
+
+        centos1:
+                hostname: centos1
+                container_name: centos1
+                image: rajabov/centos:ssh
+                networks:
+                        rajabov:
+                                ipv4_address: 172.20.0.4
+
+
+        centos2:
+                hostname: centos2
+                container_name: centos2
+                image: rajabov/centos:ssh
+                networks:
+                        rajabov:
+                                ipv4_address: 172.20.0.5
+
+
+
+networks:
+        rajabov:
+                ipam:
+                        config:
+                                - subnet: 172.20.0.0/16
+                
+
