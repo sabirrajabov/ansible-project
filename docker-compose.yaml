@@ -1,4 +1,16 @@
 services:
+        ubuntu-m:
+                hostname: ubuntu-m
+                container_name: ubuntu-m
+                image: rajabov/ubuntu-m:latest
+                networks:
+                        rajabov:
+                                ipv4_address: 172.20.0.6
+                volumes:
+                        - ansible-data:/root/data
+                ports:
+                        - 7681:7681
+
         ubuntu1:
                 hostname: ubuntu1
                 container_name: ubuntu1
@@ -40,4 +52,7 @@ networks:
                         config:
                                 - subnet: 172.20.0.0/16
                 
+volumes:
+        ansible-data:
+                driver: local
 
